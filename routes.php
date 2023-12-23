@@ -18,4 +18,4 @@ get('/callback/$name/$last_name', function($name, $last_name){
     echo "Callback executed. The full name is $name $last_name";
 });
 post('/user', '/api/save_user');
-any('/404','views/404.php');
+any('/404','pages/404.php');
