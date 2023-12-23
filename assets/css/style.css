@@ -568,3 +568,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+.text-lime-500 {
+  --tw-text-opacity: 1;
+  color: rgb(132 204 22 / var(--tw-text-opacity));
+}
+
+.text-emerald-800 {
+  --tw-text-opacity: 1;
+  color: rgb(6 95 70 / var(--tw-text-opacity));
+}
