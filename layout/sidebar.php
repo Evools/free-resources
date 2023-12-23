@@ -60,74 +60,17 @@
               <path d="m6 9 6 6 6-6" />
             </svg>
           </button>
-
           <div id="users-accordion-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
             <ul class="hs-accordion-group ps-3 pt-2" data-hs-accordion-always-open>
               <li class="hs-accordion" id="users-accordion-sub-1">
                 <button type="button" class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-lg hover:bg-gray-100">
                   Sub Menu 1
-
-                  <svg class="hs-accordion-active:block ms-auto hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m18 15-6-6-6 6" />
-                  </svg>
-
-                  <svg class="hs-accordion-active:hidden ms-auto block w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
                 </button>
-
-                <div id="users-accordion-sub-1-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
-                  <ul class="pt-2 ps-2">
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 1
-                      </a>
-                    </li>
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 3
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
-              <li class="hs-accordion" id="users-accordion-sub-2">
+              <li class="hs-accordion" id="users-accordion-sub-1">
                 <button type="button" class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-lg hover:bg-gray-100">
                   Sub Menu 2
-
-                  <svg class="hs-accordion-active:block ms-auto hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m18 15-6-6-6 6" />
-                  </svg>
-
-                  <svg class="hs-accordion-active:hidden ms-auto block w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
                 </button>
-
-                <div id="users-accordion-sub-2-child" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden ps-2">
-                  <ul class="pt-2 ps-2">
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 1
-                      </a>
-                    </li>
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-lg hover:bg-gray-100" href="#">
-                        Link 3
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
             </ul>
           </div>
