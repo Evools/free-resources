@@ -1,4 +1,8 @@
 <?php include "./layout/header.php"; ?>
-<?php include "./layout/sidebar.php"; ?>
-<?php include "./include/main-content.php"; ?>
+
+<div class="flex">
+  <?php include "./layout/sidebar.php"; ?>
+  <?php include "./include/main-content.php"; ?>
+</div>
+
 <?php include "./layout/footer.php"; ?>

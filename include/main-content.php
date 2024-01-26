@@ -1,5 +1,5 @@
 <!-- Content -->
-<div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72 text-slate-700">
+<div class="w-full pt-10 px-4 sm:px-6 md:px-8 text-slate-700">
   <!-- Page Heading -->
   <div class="flex flex-col gap-2">
     <h1 class="text-2xl font-bold">Free Design Resources</h1>

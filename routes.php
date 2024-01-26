@@ -6,6 +6,9 @@ get('/', 'pages/index.php');
 get('/contact', 'pages/contact.php');
 get('/about', 'pages/about.php');
 
+get('/signin', 'pages/login.php');
+get('/signup', 'pages/register.php');
+
 //get('/user/$id', 'views/user');
 //get('/user/$name/$last_name', 'views/full_name.php');
 //get('/product/$type/color/$color', 'product.php');
