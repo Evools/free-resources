@@ -1,5 +1,5 @@
 <?php
-$is_admin = false;
+$is_admin = true;
 ?>
 
 <!-- component -->
