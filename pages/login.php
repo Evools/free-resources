@@ -14,11 +14,13 @@ if (isset($_POST['login'])) {
   $auth->email = $_POST['email'];
   $auth->password = $_POST['password'];
 
-  $user_id = $auth->authenticate();
+  $user = $auth->authenticate();
 
-  if ($user_id) {
-    $_SESSION['user_id'] = $user_id;
+  if ($user) {
     $_SESSION['is_auth'] = true;
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['email'] = $user['email'];
     header("Location: /");
     exit();
   } else {
