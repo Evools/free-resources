@@ -2,35 +2,59 @@
 
 <?php
 
-require_once "config/db.php";
-if (isset($_POST['login'])) {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+require_once 'class/Database.php';
+require_once 'class/Auth.php';
 
-  $sql = "SELECT * FROM `users`";
-  $query = $connect->prepare($sql);
-  $query->execute();
-  while ($user = $query->fetch()) {
-    if ($user['email'] == $email) {
-      if (password_verify($password, $user['password'])) {
-        $_SESSION['is_auth'] = true;
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['username'] = $user['username'];
-        header("Location: /");
-      } else {
-        echo "Пароли не совпадают";
-      }
-    } else {
-      echo "Такого пользователя нет!";
-    }
+$database = new Database();
+$db = $database->getConnection();
+
+$auth = new Auth($db);
+
+if (isset($_POST['login'])) {
+  $auth->email = $_POST['email'];
+  $auth->password = $_POST['password'];
+
+  $user_id = $auth->authenticate();
+
+  if ($user_id) {
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['is_auth'] = true;
+    header("Location: /");
+    exit();
+  } else {
+    echo "Ошибка авторизации. Проверьте введенные данные.";
   }
 }
+
+// require_once "config/db.php";
+// if (isset($_POST['login'])) {
+//   $email = $_POST['email'];
+//   $password = $_POST['password'];
+
+//   $sql = "SELECT * FROM `users`";
+//   $query = $connect->prepare($sql);
+//   $query->execute();
+//   while ($user = $query->fetch()) {
+//     if ($user['email'] == $email) {
+//       if (password_verify($password, $user['password'])) {
+//         $_SESSION['is_auth'] = true;
+//         $_SESSION['email'] = $user['email'];
+//         $_SESSION['role'] = $user['role'];
+//         $_SESSION['username'] = $user['username'];
+//         header("Location: /");
+//       } else {
+//         echo "Пароли не совпадают";
+//       }
+//     } else {
+//       echo "Такого пользователя нет!";
+//     }
+//   }
+// }
 
 
 ?>
 
-<body class="antialiased bg-slate-200 flex items-center justify-center min-h-screen">
+<body class="antialiased bg-slate-200 flex items-center justify-center flex-col min-h-screen">
   <div class="max-w-lg bg-white p-8 rounded-xl shadow shadow-slate-300 w-[480px]">
     <h1 class="text-3xl font-bold">Авторизация</h1>
     <p class="text-slate-500">Заполните все поля чтобы начать свой путь🔥 </p>

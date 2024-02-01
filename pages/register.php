@@ -4,7 +4,7 @@
 // require_once "config/db.php";
 
 require_once "class/Database.php";
-require_once "class/Uers.php";
+require_once "class/Register.php";
 
 $db = new Database();
 $db = $db->getConnection();
