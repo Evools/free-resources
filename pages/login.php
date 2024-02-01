@@ -1,5 +1,35 @@
 <?php include "./layout/header.php"; ?>
 
+<?php
+
+require_once "config/db.php";
+if (isset($_POST['login'])) {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $sql = "SELECT * FROM `users`";
+  $query = $connect->prepare($sql);
+  $query->execute();
+  while ($user = $query->fetch()) {
+    if ($user['email'] == $email) {
+      if (password_verify($password, $user['password'])) {
+        $_SESSION['is_auth'] = true;
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['role'] = $user['role'];
+        $_SESSION['username'] = $user['username'];
+        header("Location: /");
+      } else {
+        echo "Пароли не совпадают";
+      }
+    } else {
+      echo "Такого пользователя нет!";
+    }
+  }
+}
+
+
+?>
+
 <body class="antialiased bg-slate-200 flex items-center justify-center min-h-screen">
   <div class="max-w-lg bg-white p-8 rounded-xl shadow shadow-slate-300 w-[480px]">
     <h1 class="text-3xl font-bold">Авторизация</h1>
@@ -8,7 +38,7 @@
     <div class="my-5">
 
     </div>
-    <form action="" class="my-10">
+    <form action="" class="my-10" method="post">
       <div class="flex flex-col space-y-5">
         <label for="email">
           <p class="font-medium text-slate-700 pb-2">Email адресс</p>
@@ -23,7 +53,7 @@
             <a href="#" class="font-medium text-indigo-600">Забыли пароль?</a>
           </div>
         </div>
-        <button class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+        <button class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center" name="login">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
           </svg>

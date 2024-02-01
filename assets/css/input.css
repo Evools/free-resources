@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.err-message {
+  @apply bg-red-400 text-white px-4 py-2 rounded-lg font-medium mb-2;
+}
