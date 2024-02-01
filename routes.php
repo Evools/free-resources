@@ -6,6 +6,8 @@ get('/', 'pages/index.php');
 get('/contact', 'pages/contact.php');
 get('/about', 'pages/about.php');
 
+get('/dashboard', 'pages/dashboard.php');
+
 get('/signin', 'pages/login.php');
 get('/signup', 'pages/register.php');
 get('/logout', 'pages/logout.php');
