@@ -8,6 +8,9 @@ get('/about', 'pages/about.php');
 
 get('/dashboard', 'pages/dashboard.php');
 
+get('/add-post', 'pages/add-post.php');
+post('/add-post', 'pages/add-post.php');
+
 get('/signin', 'pages/login.php');
 get('/signup', 'pages/register.php');
 get('/logout', 'pages/logout.php');

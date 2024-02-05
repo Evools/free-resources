@@ -6,8 +6,8 @@ if (isset($_POST['logout'])) {
   session_destroy();
   header("Location: /signin");
 }
-
-if (isset($_SESSION['is_auth']) && $_SESSION['is_auth']) {
+$userRole = "";
+if (isset($_SESSION['is_auth'])) {
   $userRole = $_SESSION['role'];
   // if ($userRole === 'Админ') {
   //   echo "Добро пожаловать, Администратор!";
