@@ -1,25 +1,35 @@
 <?php
 
-$arr_card = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+require_once "class/Database.php";
+require_once "class/Posts.php";
+
+$sql = new Database();
+$conn = $sql->getConnection();
+
+$posts = new Posts($conn);
+$allPost = $posts->getAllPosts();
 
 $itemsPerPage = 8;
-$totalPages = ceil(count($arr_card) / $itemsPerPage);
+$totalPages = ceil(count($allPost) / $itemsPerPage);
 $current_page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 $offset = ($current_page - 1) * $itemsPerPage;
-$current_page_items = array_slice($arr_card, $offset, $itemsPerPage);
+$current_page_items = array_slice($allPost, $offset, $itemsPerPage);
+
+
+
 
 ?>
 
-<div class="bg-gradient-to-bl from-blue-50 to-violet-50 lg:h-screen overflow-scroll">
+<div class="bg-gradient-to-bl from-blue-50 to-violet-50 lg:h-screen overflow-scroll w-full">
   <div class="container mx-auto p-4">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-      <?php foreach ($current_page_items as $cards) : ?>
+      <?php foreach ($allPost as $cards) : ?>
         <div class="bg-white rounded-lg border p-4">
           <img src="https://placehold.co/300x200/d1d4ff/352cb5.png" alt="Placeholder Image" class="w-full h-48 rounded-md object-cover">
           <div class="px-1 py-4">
-            <div class="font-bold text-xl mb-2">Название карточки</div>
+            <div class="font-bold text-xl mb-2"> <?= $cards['title']; ?> </div>
             <p class="text-gray-700 text-base">
-              Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Свой заглавных напоивший прямо текстов меня?
+              <?= $cards['info']; ?>
             </p>
           </div>
           <div class="px-1 py-4">

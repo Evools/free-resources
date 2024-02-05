@@ -1,18 +1,35 @@
 <div class="flex flex-col container mx-auto p-4 overflow-y-scroll">
   <?php
 
+  require_once "class/Database.php";
+  require_once "class/Posts.php";
+
   if (isset($_POST['add-post'])) {
     // $id = $_POST['id'];
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    // $title = $_POST['title'];
+    // $description = $_POST['description'];
     // $image = $_POST['image'];
-    $info = $_POST['info'];
+    // $info = $_POST['info'];
     // $file = $_POST['file'];
     // $category_id = $_POST['category_id'];
-    $date = date('Y-m-d');
-    $error;
+    // $date = date('Y-m-d');
+    // $error;
 
-    echo "{$title} <br> {$description} <br> {$info} <br> {$date}";
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $image = "https://placehold.co/300x200/d1d4ff/352cb5.png";
+    $info = $_POST['info'];
+    $file = "file-path.txt";
+    $category_id = 2;
+    $date = date('Y-m-d');
+    $error = null;
+
+    // echo "{$title} <br> {$description} <br> {$info} <br> {$date}";
+
+    $db = new Database();
+    $conn = $db->getConnection();
+    $posts = new Posts($conn);
+    $posts->addPost($title, $description, $image, $info, $file, $category_id, $date, $error);
   }
 
 
